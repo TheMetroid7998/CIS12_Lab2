@@ -55,27 +55,26 @@ print (f"""
 #print ("beep boop the code worked")
 
 
-def celsius_to_fahrenheit(input2):
-    output_f = int(input2 * (9 / 5) + 32)
-    print (f"{input2}\u00b0C is equal to {str(output_f)}\u00b0F")
+def celsius_to_fahrenheit(cel_temp):
+    output_f = int(cel_temp * (9 / 5) + 32)
+    print(f"{cel_temp}\u00b0C is equal to {str(output_f)}\u00b0F")
 
+def fahrenheit_to_celsius(far_temp):
+    output_c = int((far_temp - 32) * (5 / 9))
+    print(f"{far_temp}\u00b0F is equal to {str(output_c)}\u00b0C")
 
-def fahrenheit_to_celsius(input2):
-    output_c = int((input2 - 32) * (5 / 9))
-    print (f"{input2}\u00b0F is equal to {str(output_c)}\u00b0C")
-
-print ("This code will convert between Fahrenheit and Celsius or vice versa.")
-print ("Type C to convert from Celsius to Fahrenheit, type F to convert from Fahrenheit to Celsius.")
-INP = input().strip().upper()
-while INP == "C":
-    print ("This code will convert from Celsius to Fahrenheit. Type a value in Celsius.")
-    input2 = int(input())
-    celsius_to_fahrenheit(input2)
+print("This code will convert between Fahrenheit and Celsius or vice versa.")
+print("Type C to convert from Celsius to Fahrenheit, type F to convert from Fahrenheit to Celsius.")
+inp1 = input().strip().upper()
+while inp1 == "C":
+    print("This code will convert from Celsius to Fahrenheit. Type a value in Celsius.")
+    temp_val_c = int(input())
+    celsius_to_fahrenheit(temp_val_c)
     break
-while INP == "F":
-    print ("This code will convert from Fahrenheit to Celsius. Type a value in Fahrenheit.")
-    input2 = int(input())
-    fahrenheit_to_celsius(input2)
+while inp1 == "F":
+    print("This code will convert from Fahrenheit to Celsius. Type a value in Fahrenheit.")
+    temp_val_f = int(input())
+    fahrenheit_to_celsius(temp_val_f)
     break
-if INP != "C" and INP != "F":
+if inp1 != "C" and inp1 != "F":
     print("Invalid input. Please restart the program and enter 'C' or 'F'.")
