@@ -58,23 +58,48 @@ print (f"""
 def celsius_to_fahrenheit(cel_temp):
     output_f = int(cel_temp * (9 / 5) + 32)
     print(f"{cel_temp}\u00b0C is equal to {str(output_f)}\u00b0F")
+    print("Would you like to continue converting? Y/N:")
 
 def fahrenheit_to_celsius(far_temp):
     output_c = int((far_temp - 32) * (5 / 9))
     print(f"{far_temp}\u00b0F is equal to {str(output_c)}\u00b0C")
+    print("Would you like to continue converting? Y/N:")
 
 print("This code will convert between Fahrenheit and Celsius or vice versa.")
 print("Type C to convert from Celsius to Fahrenheit, type F to convert from Fahrenheit to Celsius.")
 inp1 = input().strip().upper()
 while inp1 == "C":
     print("This code will convert from Celsius to Fahrenheit. Type a value in Celsius.")
-    temp_val_c = int(input())
+    try:
+        temp_val_c = int(input())
+    except ValueError:
+        print("Invalid input. Please only enter numbers.")
+        continue
     celsius_to_fahrenheit(temp_val_c)
-    break
+    inp2 = input().strip().upper()
+    if inp2 == "Y":
+        continue
+    elif inp2 != "Y" and inp2 != "N":
+        print("Invalid input. Please only enter 'Y' or 'N'")
+        continue
+    else:
+        print("All done. I shall now be consigned to oblivion. Farewell.")
+        break
 while inp1 == "F":
     print("This code will convert from Fahrenheit to Celsius. Type a value in Fahrenheit.")
-    temp_val_f = int(input())
+    try:
+        temp_val_f = int(input())
+    except ValueError:
+        print("Invalid input. Please only enter numbers.")
     fahrenheit_to_celsius(temp_val_f)
-    break
+    inp2 = input().strip().upper()
+    if inp2 == "Y":
+        continue
+    elif inp2 != "Y" and inp2 != "N":
+        print("Invalid input. Please only enter 'Y' or 'N'")
+        continue
+    else:
+        print("All done. I shall now be consigned to oblivion. Farewell.")
+        break
 if inp1 != "C" and inp1 != "F":
     print("Invalid input. Please restart the program and enter 'C' or 'F'.")
